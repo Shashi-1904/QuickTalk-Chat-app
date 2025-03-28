@@ -4,6 +4,7 @@ const { chats } = require("./data/data");
 const connectDB = require("./config/db")
 const userRoutes = require('./routes/userRoutes')
 const uploadRoutes = require('./routes/uploadRoutes');
+const chatRoutes = require("./routes/chatRoutes");
 const path = require("path");
 const { notFound, errorHandler } = require('./middlewares/errorMiddleware')
 const cors = require("cors");
@@ -27,6 +28,7 @@ app.get("/", (req, res) => {
 
 app.use('/api/user', userRoutes);
 app.use("/api/upload", uploadRoutes);
+app.use('/api/chat', chatRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
